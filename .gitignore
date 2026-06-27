@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Environment variables
+.env
+
+# Data files (generated at runtime)
+history.json
+feedback.json
+
+# HuggingFace model cache
+.cache/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# VS Code
+.vscode/
+
+# Node (if any JS tooling)
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
