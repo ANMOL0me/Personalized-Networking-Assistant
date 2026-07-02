@@ -43,23 +43,33 @@ The project follows a modern architecture:
 -Hugging Face Transformers	NLP Models
 -Uvicorn	ASGI Server
 -Pydantic	Data Validation
-```
+
 => Project Structure
-project/
-│
-├── backend/
-│   ├── main.py
-│   ├── models.py
-│   ├── utils.py
-│   └── requirements.txt
-│
-├── frontend/
-│   ├── app.py
-│   └── requirements.txt
-│
-├── README.md
-└── .gitignore
 ```
+networking-assistant/
+├── app/
+│   ├── models/
+│   │   └── schemas.py          # Pydantic request/response models
+│   ├── routers/
+│   │   └── conversation.py     # FastAPI route handlers
+│   ├── services/
+│   │   ├── event_analyzer.py   # Zero-shot event theme extraction
+│   │   ├── topic_generator.py  # GPT-2 conversation starter generation
+│   │   ├── fact_checker.py     # External fact-check API integration
+│   │   ├── history_logger.py   # Conversation history persistence
+│   │   └── feedback_logger.py  # User feedback logging
+│   ├── config.py               # Model names and API config
+│   └── main.py                 # FastAPI app entry point
+├── frontend/
+│   └── streamlit_app.py        # Streamlit UI
+├── tests/
+│   ├── conftest.py
+│   ├── test_event_analyzer.py
+│   ├── test_fact_checker.py
+│   ├── test_routes.py
+│   └── test_topic_generator.py
+├── requirements.txt
+└── README.md```
 =>Installation = [installation.txt](https://github.com/ANMOL0me/Personalized-Networking-Assistant/blob/main/installation.txt)
 
 => Screenshots
