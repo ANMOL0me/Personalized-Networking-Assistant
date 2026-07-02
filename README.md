@@ -35,7 +35,7 @@ networking-assistant/
 
 ---
 
-## 🚀 Getting Started
+##  Start
 
 ### 1. Clone the repository
 
