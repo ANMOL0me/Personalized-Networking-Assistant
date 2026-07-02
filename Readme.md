@@ -69,7 +69,8 @@ networking-assistant/
 │   ├── test_routes.py
 │   └── test_topic_generator.py
 ├── requirements.txt
-└── README.md```
+└── README.md
+```
 =>Installation = [installation.txt](https://github.com/ANMOL0me/Personalized-Networking-Assistant/blob/main/installation.txt)
 
 => Screenshots
