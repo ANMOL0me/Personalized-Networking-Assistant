@@ -1,13 +1,11 @@
- Personalized Networking Assistant
-<div align="center">
+
 =>Personalized Networking Assistant
 
 An AI-powered networking assistant built with FastAPI and Streamlit
 
 Generate personalized conversation starters for networking events and instantly fact-check claims using AI.
 
-</div>
- =>Overview
+=>Overview
 
 The Personalized Networking Assistant is an AI-based web application that helps users prepare for networking events by generating personalized conversation starters based on event descriptions and individual interests.
 
