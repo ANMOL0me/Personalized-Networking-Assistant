@@ -12,5 +12,8 @@ EXPOSE 8000
 EXPOSE 8501
 
 CMD ["./start.sh"]
+<<<<<<< HEAD:dockerfile
 
 
+=======
+>>>>>>> 027e40baec6c3f6b57e61c3fc28af5233b68323b:Dockerfile

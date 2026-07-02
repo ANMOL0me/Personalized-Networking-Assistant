@@ -17,8 +17,8 @@ st.title(" Personalized Networking Assistant")
 st.markdown("Generate conversation starters for networking events based on your interests.")
 
 # --- INPUT SECTION ---
-event_description = st.text_area("📋 Enter Event Description")
-user_interests = st.text_input("🎯 Your Interests (comma-separated)")
+event_description = st.text_area("Enter Event Description")
+user_interests = st.text_input(" Your Interests (comma-separated)")
 
 if st.button("Generate Conversation Starters"):
     if event_description and user_interests:
@@ -41,10 +41,10 @@ if st.button("Generate Conversation Starters"):
 
 # --- DISPLAY RESULTS + FEEDBACK ---
 if "suggestions" in st.session_state:
-    st.subheader("🧠 Extracted Topics:")
+    st.subheader(" Extracted Topics:")
     st.write(st.session_state["topics"])
 
-    st.subheader("💬 Conversation Starters:")
+    st.subheader(" Conversation Starters:")
     for i, suggestion in enumerate(st.session_state["suggestions"]):
         st.markdown(f"- {suggestion}")
 
@@ -60,7 +60,7 @@ if "suggestions" in st.session_state:
 
 # --- FACT CHECK SECTION ---
 st.markdown("---")
-st.subheader("🔍 Quick Fact-Check")
+st.subheader(" Quick Fact-Check")
 
 query = st.text_input("Enter a topic to fact-check")
 
@@ -74,7 +74,7 @@ if st.button("Fact Check"):
 
 # --- CONVERSATION HISTORY ---
 st.markdown("---")
-st.subheader("📋 View Previous Conversations")
+st.subheader(" View Previous Conversations")
 
 if st.button("Show History"):
     history_path = Path("history.json")
@@ -82,7 +82,7 @@ if st.button("Show History"):
         with open(history_path, "r") as f:
             history = json.load(f)
         for item in reversed(history[-5:]):  # show latest 5
-            st.markdown(f"** 📅 {item['timestamp']}**")
+            st.markdown(f"**  {item['timestamp']}**")
             st.write("**Event:**", item["description"])
             st.write("**Interests:**", ", ".join(item["interests"]))
             st.write("**Topics:**", ", ".join(item["topics"]))
@@ -94,7 +94,7 @@ if st.button("Show History"):
         st.info("No history found yet.")
 
 st.markdown("---")
-st.subheader("🗂️ View Feedback History")
+st.subheader("🗂️View Feedback History")
 
 feedback_path = Path("feedback.json")
 
