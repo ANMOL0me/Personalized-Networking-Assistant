@@ -4,6 +4,7 @@ An AI-powered networking assistant that generates personalized conversation star
 
 
 Project Structure
+```
 
 networking-assistant/
 ├── app/
@@ -29,6 +30,7 @@ networking-assistant/
 │   └── test_topic_generator.py
 ├── requirements.txt
 └── README.md
+```
 ```
 
 ---
