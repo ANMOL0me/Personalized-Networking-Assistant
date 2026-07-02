@@ -11,9 +11,9 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from app.services import feedback_logger
 
 # Backend base URL
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "https://personalized-networking-assistant.onrender.com"
 
-st.title("🤝 Personalized Networking Assistant")
+st.title(" Personalized Networking Assistant")
 st.markdown("Generate conversation starters for networking events based on your interests.")
 
 # --- INPUT SECTION ---
