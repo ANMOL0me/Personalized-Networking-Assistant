@@ -12,3 +12,5 @@ EXPOSE 8000
 EXPOSE 8501
 
 CMD ["./start.sh"]
+
+
