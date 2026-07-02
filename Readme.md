@@ -1,14 +1,13 @@
-For installation refer to [installation.txt]
  Personalized Networking Assistant
 <div align="center">
- Personalized Networking Assistant
+=>Personalized Networking Assistant
 
 An AI-powered networking assistant built with FastAPI and Streamlit
 
 Generate personalized conversation starters for networking events and instantly fact-check claims using AI.
 
 </div>
- Overview
+ =>Overview
 
 The Personalized Networking Assistant is an AI-based web application that helps users prepare for networking events by generating personalized conversation starters based on event descriptions and individual interests.
 
@@ -16,36 +15,37 @@ The application also includes a Quick Fact-Check feature that verifies claims or
 
 The project follows a modern architecture:
 
-Frontend: Streamlit
-Backend: FastAPI
-AI Models: Hugging Face Transformers
-Communication: REST APIs
- Features
- Personalized Networking Assistant
-Generate networking conversation starters
-Understands event descriptions
-Personalizes responses based on user interests
-Easy-to-use Streamlit interface
- Quick Fact Check
-Verify facts instantly
-AI-powered claim analysis
-Simple one-click interface
- REST API
+-Frontend: Streamlit
+-Backend: FastAPI
+-AI Models: Hugging Face Transformers
+-Communication: REST APIs
+ =>Features
+-Personalized Networking Assistant
+-Generate networking conversation starters
+-Understands event descriptions
+-Personalizes responses based on user interests
+-Easy-to-use Streamlit interface
+ -Quick Fact Check
+-Verify facts instantly
+-AI-powered claim analysis
+-Simple one-click interface
+ -REST API
 
-FastAPI provides APIs for:
+>FastAPI provides APIs for:
 
-Analyze Event
-Generate Conversation
-Fact Check
-🛠 Tech Stack
-Technology	Purpose
-Python	Programming Language
-FastAPI	Backend API
-Streamlit	Frontend
-Hugging Face Transformers	NLP Models
-Uvicorn	ASGI Server
-Pydantic	Data Validation
- Project Structure
+-Analyze Event
+-Generate Conversation
+-Fact Check
+-Tech Stack
+-Technology	Purpose
+-Python	Programming Language
+-FastAPI	Backend API
+-Streamlit	Frontend
+-Hugging Face Transformers	NLP Models
+-Uvicorn	ASGI Server
+-Pydantic	Data Validation
+
+=> Project Structure
 project/
 │
 ├── backend/
@@ -60,69 +60,8 @@ project/
 │
 ├── README.md
 └── .gitignore
-⚙ Installation
-1. Clone Repository
-git clone https://github.com/yourusername/networking-assistant.git
-
-cd networking-assistant
-2. Create Virtual Environment
-
-Windows
-
-python -m venv venv
-
-Activate
-
-venv\Scripts\activate
-
-Mac/Linux
-
-python3 -m venv venv
-
-source venv/bin/activate
-3. Install Dependencies
-pip install -r requirements.txt
-▶ Running the Backend
-
-Start FastAPI server
-
-uvicorn main:app --reload
-
-Backend runs at
-
-http://127.0.0.1:8000
-
-Swagger Documentation
-
-http://127.0.0.1:8000/docs
-▶ Running the Frontend
-
-Open another terminal
-
-streamlit run app.py
-
-The application will open automatically in your browser.
-
-Usually at
-
-http://localhost:8501
- API Endpoints
-Method	Endpoint	Description
-POST	/analyze-event	Analyze event description
-POST	/generate-conversation	Generate conversation starters
-POST	/fact-check	Verify facts
-GET	/	Root Endpoint
-🖥 Application Screens
-Main Interface
-Enter Event Description
-Enter Your Interests
-Generate Conversation Starters
-Quick Fact Check
-FastAPI Swagger UI
-
-Provides interactive API testing for all endpoints.
-
-📷 Screenshots
+ Installation
+=> Screenshots
 Streamlit Frontend
 <img src="Screenshot%202026-07-02%20225852(1).png" width="900">
 FastAPI Swagger Documentation
@@ -152,7 +91,7 @@ transformers
 torch
 pydantic
 requests
- Example Workflow
+Example Workflow
 Launch FastAPI backend.
 Launch Streamlit frontend.
 Enter an event description.
@@ -170,11 +109,9 @@ Railway
 Docker
 AWS EC2
 Azure App Service
- Author
+=>Author
 
-Anmol Soni
-
-AI & Data Science Enthusiast
+Anmol Son
 
  License
 
