@@ -1,12 +1,11 @@
-# 🤝 Personalized Networking Assistant
+ Personalized Networking Assistant
 
 An AI-powered networking assistant that generates personalized conversation starters for events based on your interests, powered by HuggingFace Transformers and FastAPI.
 
----
 
-## 📁 Project Structure
-
+Project Structure
 ```
+
 networking-assistant/
 ├── app/
 │   ├── models/
@@ -32,10 +31,11 @@ networking-assistant/
 ├── requirements.txt
 └── README.md
 ```
+```
 
 ---
 
-## 🚀 Getting Started
+##  Start
 
 ### 1. Clone the repository
 
@@ -62,7 +62,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Running the App
+## How to run
 
 ### Start the FastAPI backend
 
@@ -86,7 +86,7 @@ The UI will open at `http://localhost:8501`.
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -105,7 +105,7 @@ curl -X POST "http://127.0.0.1:8000/generate-conversation" \
 
 ---
 
-## 🧪 Running Tests
+## Tests
 
 ```bash
 pytest tests/
@@ -113,7 +113,7 @@ pytest tests/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend:** FastAPI, Uvicorn
 - **AI Models:** HuggingFace Transformers (BART zero-shot classification, GPT-2 text generation)
@@ -123,7 +123,7 @@ pytest tests/
 
 ---
 
-## 📝 Notes
+##  Note
 
 - On first run, HuggingFace models will be downloaded automatically (~1–2 GB).
 - The fact-checker uses an external API (`FACT_CHECK_API` in `config.py`) — update this URL to point to a real fact-checking service.
