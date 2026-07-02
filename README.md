@@ -1,4 +1,4 @@
- Personalized Networking Assistant
+ #Personalized Networking Assistant
 
 An AI-powered networking assistant that generates personalized conversation starters for events based on your interests, powered by HuggingFace Transformers and FastAPI.
 
