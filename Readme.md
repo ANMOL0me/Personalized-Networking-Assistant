@@ -42,7 +42,7 @@ The project follows a modern architecture:
 -Hugging Face Transformers	NLP Models
 -Uvicorn	ASGI Server
 -Pydantic	Data Validation
-
+```
 => Project Structure
 project/
 │
@@ -58,7 +58,8 @@ project/
 │
 ├── README.md
 └── .gitignore
- Installation
+```
+Installation = [installation.txt]()
 => Screenshots
 Streamlit Frontend
 <img src="Screenshot%202026-07-02%20225852(1).png" width="900">
