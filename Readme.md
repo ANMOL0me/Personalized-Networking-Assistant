@@ -17,7 +17,8 @@ The project follows a modern architecture:
 -Backend: FastAPI
 -AI Models: Hugging Face Transformers
 -Communication: REST APIs
- =>Features
+
+=>Features
 -Personalized Networking Assistant
 -Generate networking conversation starters
 -Understands event descriptions
@@ -59,7 +60,8 @@ project/
 ├── README.md
 └── .gitignore
 ```
-Installation = [installation.txt]()
+=>Installation = [installation.txt](https://github.com/ANMOL0me/Personalized-Networking-Assistant/blob/main/installation.txt)
+
 => Screenshots
 Streamlit Frontend
 <img src="Screenshot%202026-07-02%20225852(1).png" width="900">
@@ -109,9 +111,6 @@ Docker
 AWS EC2
 Azure App Service
 =>Author
-
-Anmol Son
-
- License
-
+Anmol Soni
+=>License
 This project is intended for educational and learning purposes. Feel free to fork, modify, and enhance it.
