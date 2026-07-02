@@ -5,6 +5,9 @@ import requests
 import json
 from pathlib import Path
 import sys
+import os
+
+
 
 # Add root project directory to Python path to import app modules
 sys.path.append(str(Path(__file__).resolve().parent.parent))
