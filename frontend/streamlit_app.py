@@ -14,7 +14,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from app.services import feedback_logger
 
 # Backend base URL
-BASE_URL = "https://personalized-networking-assistant-production.up.railway.app/"
+BASE_URL = "https://personalized-networking-assistant-production-265c.up.railway.app/"
 
 st.title(" Personalized Networking Assistant")
 st.markdown("Generate conversation starters for networking events based on your interests.")
