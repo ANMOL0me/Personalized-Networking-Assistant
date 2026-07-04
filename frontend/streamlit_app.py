@@ -20,7 +20,9 @@ st.set_page_config(
     layout="wide"
 )
 
+
 st.title("🤝 Personalized Networking Assistant")
+st.error("VERSION 2 - DEBUG MODE")
 st.write("Generate conversation starters for networking events.")
 
 # ============================================================
