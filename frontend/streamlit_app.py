@@ -9,82 +9,141 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from app.services import feedback_logger
 
-# Railway Backend URL (NO trailing slash)
+# ----------------------------
+# Railway Backend URL
+# ----------------------------
 BASE_URL = "https://personalized-networking-assistant-production-265c.up.railway.app"
 
-st.title("🚀 Personalized Networking Assistant")
-st.markdown("Generate conversation starters for networking events based on your interests.")
+st.set_page_config(
+    page_title="Personalized Networking Assistant",
+    page_icon="🤝",
+    layout="wide"
+)
 
-# -------------------------
-# INPUT SECTION
-# -------------------------
-event_description = st.text_area("Enter Event Description")
-user_interests = st.text_input("Your Interests (comma-separated)")
+st.title("🤝 Personalized Networking Assistant")
+st.write("Generate conversation starters for networking events.")
+
+# ============================================================
+# Generate Conversation Starters
+# ============================================================
+
+st.subheader("Generate Conversation Starters")
+
+event_description = st.text_area(
+    "Event Description",
+    placeholder="Example: AI Conference in Bangalore"
+)
+
+user_interests = st.text_input(
+    "Your Interests",
+    placeholder="Python, Machine Learning"
+)
 
 if st.button("Generate Conversation Starters"):
-    if event_description and user_interests:
+
+    if not event_description or not user_interests:
+        st.warning("Please enter both Event Description and Interests.")
+
+    else:
 
         payload = {
             "description": event_description,
-            "interests": [i.strip() for i in user_interests.split(",")]
+            "interests": [
+                x.strip()
+                for x in user_interests.split(",")
+                if x.strip()
+            ]
         }
 
         try:
+
             response = requests.post(
                 f"{BASE_URL}/conversation/generate-conversation",
                 json=payload,
-                timeout=60
+                timeout=120
             )
 
-            if response.status_code == 200:
-                data = response.json()
+            st.write("### Debug Information")
+            st.write("Status Code:", response.status_code)
+            st.write("Response:")
+            st.code(response.text)
 
-                st.session_state["topics"] = data["topics"]
-                st.session_state["suggestions"] = data["suggestions"]
+            response.raise_for_status()
 
-            else:
-                st.error(f"Status Code: {response.status_code}")
-                st.code(response.text)
+            data = response.json()
 
-        except requests.exceptions.RequestException as e:
-            st.error(f"Connection Error:\n{e}")
+            st.session_state["topics"] = data.get("topics", [])
+            st.session_state["suggestions"] = data.get("suggestions", [])
 
-    else:
-        st.warning("Please enter both description and interests.")
+        except requests.exceptions.HTTPError as e:
+            st.error("HTTP Error")
+            st.exception(e)
 
-# -------------------------
-# DISPLAY RESULTS
-# -------------------------
-if "suggestions" in st.session_state:
+        except requests.exceptions.ConnectionError as e:
+            st.error("Could not connect to Railway backend.")
+            st.exception(e)
 
-    st.subheader("📌 Extracted Topics")
-    st.write(st.session_state["topics"])
+        except requests.exceptions.Timeout as e:
+            st.error("Backend timed out.")
+            st.exception(e)
 
-    st.subheader("💬 Conversation Starters")
+        except Exception as e:
+            st.error("Unexpected Error")
+            st.exception(e)
+
+# ============================================================
+# Display Results
+# ============================================================
+
+if "topics" in st.session_state:
+
+    st.success("Conversation generated successfully!")
+
+    st.subheader("Extracted Topics")
+
+    for topic in st.session_state["topics"]:
+        st.write("•", topic)
+
+    st.subheader("Conversation Starters")
 
     for i, suggestion in enumerate(st.session_state["suggestions"]):
 
-        st.markdown(f"- {suggestion}")
+        st.markdown(f"**{i+1}. {suggestion}**")
 
         col1, col2 = st.columns(2)
 
         with col1:
             if st.button("👍", key=f"like_{i}"):
-                feedback_logger.log_feedback(suggestion, "like")
-                st.success("Thanks for the feedback!")
+
+                feedback_logger.log_feedback(
+                    suggestion,
+                    "like"
+                )
+
+                st.success("Feedback saved.")
 
         with col2:
             if st.button("👎", key=f"dislike_{i}"):
-                feedback_logger.log_feedback(suggestion, "dislike")
-                st.info("Feedback recorded.")
 
-# -------------------------
-# FACT CHECK
-# -------------------------
-st.markdown("---")
-st.subheader("🔍 Quick Fact Check")
+                feedback_logger.log_feedback(
+                    suggestion,
+                    "dislike"
+                )
 
-query = st.text_input("Enter a topic")
+                st.info("Feedback saved.")
+
+# ============================================================
+# Fact Check
+# ============================================================
+
+st.divider()
+
+st.subheader("Fact Check")
+
+query = st.text_input(
+    "Topic",
+    placeholder="Artificial Intelligence"
+)
 
 if st.button("Fact Check"):
 
@@ -95,73 +154,79 @@ if st.button("Fact Check"):
             response = requests.post(
                 f"{BASE_URL}/conversation/fact-check",
                 json={"query": query},
-                timeout=60
+                timeout=120
             )
 
-            if response.status_code == 200:
-                st.success(response.json()["summary"])
+            st.write("Status:", response.status_code)
+            st.code(response.text)
 
-            else:
-                st.error(f"Status Code: {response.status_code}")
-                st.code(response.text)
+            response.raise_for_status()
 
-        except requests.exceptions.RequestException as e:
-            st.error(f"Connection Error:\n{e}")
+            data = response.json()
 
-# -------------------------
-# HISTORY
-# -------------------------
-st.markdown("---")
-st.subheader("📜 Previous Conversations")
+            st.success(data["summary"])
+
+        except Exception as e:
+            st.exception(e)
+
+# ============================================================
+# Conversation History
+# ============================================================
+
+st.divider()
+
+st.subheader("Conversation History")
+
+history_file = Path("history.json")
 
 if st.button("Show History"):
 
-    history_path = Path("history.json")
+    if history_file.exists():
 
-    if history_path.exists():
-
-        with open(history_path, "r") as f:
-            history = json.load(f)
+        history = json.loads(history_file.read_text())
 
         for item in reversed(history[-5:]):
 
             st.markdown(f"### {item['timestamp']}")
-            st.write("**Event:**", item["description"])
-            st.write("**Interests:**", ", ".join(item["interests"]))
-            st.write("**Topics:**", ", ".join(item["topics"]))
+            st.write("Event:", item["description"])
+            st.write("Interests:", ", ".join(item["interests"]))
+            st.write("Topics:", ", ".join(item["topics"]))
 
-            st.write("**Suggestions:**")
+            st.write("Suggestions")
 
-            for suggestion in item["suggestions"]:
-                st.markdown(f"- {suggestion}")
+            for s in item["suggestions"]:
+                st.write("-", s)
 
-            st.markdown("---")
+            st.divider()
 
     else:
         st.info("No history found.")
 
-# -------------------------
-# FEEDBACK HISTORY
-# -------------------------
-st.markdown("---")
-st.subheader("🗂️ Feedback History")
+# ============================================================
+# Feedback History
+# ============================================================
 
-feedback_path = Path("feedback.json")
+st.divider()
+
+st.subheader("Feedback History")
+
+feedback_file = Path("feedback.json")
 
 if st.button("Show Feedback"):
 
-    if feedback_path.exists():
+    if feedback_file.exists():
 
-        with open(feedback_path, "r") as f:
-            feedback = json.load(f)
+        feedback = json.loads(feedback_file.read_text())
 
         for item in reversed(feedback[-10:]):
 
             icon = "👍" if item["feedback"] == "like" else "👎"
 
-            st.markdown(f"{icon} **{item['suggestion']}**")
+            st.write(
+                f"{icon} {item['suggestion']}"
+            )
+
             st.caption(item["timestamp"])
-            st.markdown("---")
 
     else:
         st.info("No feedback available.")
