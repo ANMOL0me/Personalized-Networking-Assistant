@@ -74,6 +74,7 @@ networking-assistant/
 =>Installation = [installation.txt](https://github.com/ANMOL0me/Personalized-Networking-Assistant/blob/main/installation.txt)
 
 => Screenshots
+
 Streamlit Frontend
 <img src="Screenshot 2026-07-04 141719.png" width="900">
 FastAPI Working and deployment on Railway
