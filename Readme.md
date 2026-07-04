@@ -75,11 +75,11 @@ networking-assistant/
 
 => Screenshots
 Streamlit Frontend
-<img src="![alt text](<Screenshot 2026-07-04 141719.png>)" width="900">
+<img src="Screenshot 2026-07-04 141719.png" width="900">
 FastAPI Working and deployment on Railway
-<img src="![alt text](<Screenshot 2026-07-04 141837.png>)" width="900">
+<img src="Screenshot 2026-07-04 141837.png" width="900">
 FastAPI Swagger Documentation
-<img src="![alt text](<Screenshot 2026-07-04 141850.png>)" width="900">
+<img src="Screenshot 2026-07-04 141850.png" width="900">
 Installing Dependencies
 <img src="Screenshot%202026-07-03%20004638.png" width="900">
 Package Installation
