@@ -57,8 +57,8 @@ if st.button("Generate Conversation Starters"):
 # -------------------------
 if "suggestions" in st.session_state:
 
-    st.subheader(" Extracted Topics")
-    st.write(st.session_state["topics"])
+    #st.subheader(" Extracted Topics")
+    #st.write(st.session_state["topics"])
 
     st.subheader(" Conversation Starters")
 
