@@ -7,6 +7,7 @@ import sys
 # Add root project directory to Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
+
 # Railway Backend URL (NO trailing slash)
 BASE_URL = "https://personalized-networking-assistant-production.up.railway.app"
 st.set_page_config(
@@ -60,8 +61,8 @@ if st.button("Generate Conversation Starters"):
 # -------------------------
 if "suggestions" in st.session_state:
 
-    st.subheader(" Extracted Topics")
-    st.write(st.session_state["topics"])
+    #st.subheader(" Extracted Topics")
+    #st.write(st.session_state["topics"])
 
     st.subheader(" Conversation Starters")
 
