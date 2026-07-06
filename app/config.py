@@ -5,4 +5,4 @@ MODEL_NAMES = {
     "text_generator": "gpt2",
 }
 
-FACT_CHECK_API = "https://api.factcheck.org/v1/search"
+FACT_CHECK_API = "https://en.wikipedia.org/api/rest_v1/page/summary"
