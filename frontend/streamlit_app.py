@@ -7,14 +7,10 @@ import sys
 # Add root project directory to Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
+from app.services import feedback_logger
 
 # Railway Backend URL (NO trailing slash)
 BASE_URL = "https://personalized-networking-assistant-production.up.railway.app"
-st.set_page_config(
-    page_title="Personalized Networking Assistant",
-    page_icon="🤝",
-    layout="centered",
-)
 
 st.title(" Personalized Networking Assistant")
 st.markdown("Generate conversation starters for networking events based on your interests.")
@@ -62,7 +58,7 @@ if st.button("Generate Conversation Starters"):
 if "suggestions" in st.session_state:
 
     #st.subheader(" Extracted Topics")
-    #st.write(st.session_state["topics"])
+    st.write(st.session_state["topics"])
 
     st.subheader(" Conversation Starters")
 
