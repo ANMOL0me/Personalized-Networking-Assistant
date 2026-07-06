@@ -9,7 +9,7 @@ import streamlit as st
 # Add root project directory to Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from app.services import feeimport requests
+
 import json
 from pathlib import Path
 import sys
@@ -174,7 +174,7 @@ if st.button("Show Feedback"):
             st.markdown("---")
 
     else:
-        st.info("No feedback available.")dback_logger
+        st.info("No feedback available.")
 
 # Railway Backend URL (NO trailing slash)
 BASE_URL = "https://personalized-networking-assistant-production.up.railway.app"
