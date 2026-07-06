@@ -12,7 +12,7 @@ KEYWORD_MAP = {
 }
 
 
-def extract_event_themes(description: str, candidate_labels=None):
+def extract_event_themes(description: str, candidate_labels=None, top_n: int = 5):
     text = description.lower()
     scores = {}
 
@@ -24,9 +24,9 @@ def extract_event_themes(description: str, candidate_labels=None):
         scores[label] = score
 
     ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    top = [label for label, score in ranked if score > 0][:3]
+    top = [label for label, score in ranked if score > 0][:top_n]
 
     if not top:
-        top = labels[:3]
+        top = ["No clear theme detected"]
 
     return top
