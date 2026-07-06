@@ -74,13 +74,10 @@ networking-assistant/
 =>Installation = [installation.txt](https://github.com/ANMOL0me/Personalized-Networking-Assistant/blob/main/installation.txt)
 
 => Screenshots
-
 Streamlit Frontend
-<img src="Screenshot 2026-07-04 141719.png" width="900">
-FastAPI Working and deployment on Railway
-<img src="Screenshot 2026-07-04 141837.png" width="900">
+<img src="Screenshot%202026-07-02%20225852(1).png" width="900">
 FastAPI Swagger Documentation
-<img src="Screenshot 2026-07-04 141850.png" width="900">
+<img src="Screenshot%202026-07-03%20004627.png" width="900">
 Installing Dependencies
 <img src="Screenshot%202026-07-03%20004638.png" width="900">
 Package Installation

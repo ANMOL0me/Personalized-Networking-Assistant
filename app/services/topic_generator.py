@@ -1,18 +1,27 @@
 # app/services/topic_generator.py
 
-from transformers import pipeline, set_seed
-from app.config import MODEL_NAMES
+import random
 
-generator = pipeline("text-generation", model=MODEL_NAMES["text_generator"])
-set_seed(42)
+TEMPLATES = [
+    "What got you interested in {interest}, and how does it connect to {theme}?",
+    "I've been following {theme} lately — have you seen any interesting overlap with {interest}?",
+    "If you could combine {interest} with {theme}, what would you build first?",
+    "What's the most surprising thing you've learned about {theme} recently?",
+    "How do you see {interest} shaping the future of {theme}?",
+    "What's a common misconception people have about {theme}?",
+]
 
 
-def generate_topics(event_themes, user_interests):
-    prompt = (
-        f"I'm attending a networking event focused on {', '.join(event_themes)}. "
-        f"I'm personally interested in {', '.join(user_interests)}. "
-        f"What are three creative and engaging conversation starters I could use to break the ice?"
-    )
-    outputs = generator(prompt, max_length=80, num_return_sequences=1)
-    suggestions = outputs[0]["generated_text"].split("\n")[:3]
-    return [s.strip("- ").strip() for s in suggestions if s.strip()]
+def generate_topics(event_themes, user_interests, count=3):
+    themes = event_themes or ["this event"]
+    interests = user_interests or ["your work"]
+
+    suggestions = []
+    used_templates = random.sample(TEMPLATES, min(count, len(TEMPLATES)))
+
+    for i, template in enumerate(used_templates):
+        theme = themes[i % len(themes)]
+        interest = interests[i % len(interests)]
+        suggestions.append(template.format(interest=interest, theme=theme))
+
+    return suggestions
