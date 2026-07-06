@@ -75,14 +75,18 @@ networking-assistant/
 
 => Screenshots
 Streamlit Frontend
-<img src="Screenshot 2026-07-02 225852.png width="900">
+<img src="Screenshot 2026-07-02 225852.png" width="900">
+
 FastAPI Swagger Documentation
 <img src="Screenshot%202026-07-03%20004627.png" width="900">
+
 Installing Dependencies
 <img src="Screenshot%202026-07-03%20004638.png" width="900">
+
 Package Installation
 <img src="Screenshot%202026-07-03%20004647.png" width="900">
- Future Improvements
+
+Future Improvements
 User Authentication
 Conversation History
 Export Results as PDF
