@@ -6,11 +6,16 @@ import sys
 
 # Add root project directory to Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-
+set_page_config
 
 
 # Railway Backend URL (NO trailing slash)
 BASE_URL = "https://personalized-networking-assistant-production.up.railway.app"
+st.set_page_config(
+    page_title="Personalized Networking Assistant",
+    page_icon="🤝",
+    layout="centered",
+)
 
 st.title(" Personalized Networking Assistant")
 st.markdown("Generate conversation starters for networking events based on your interests.")
