@@ -6,8 +6,6 @@ import sys
 
 # Add root project directory to Python path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-set_page_config
-
 
 # Railway Backend URL (NO trailing slash)
 BASE_URL = "https://personalized-networking-assistant-production.up.railway.app"
