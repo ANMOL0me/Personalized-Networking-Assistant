@@ -78,10 +78,10 @@ networking-assistant/
 
 <img src="Screenshots\Screenshot 2026-07-02 225852.png" width="900">
 
-```->Fast API response```
+```->Fast API response
 
 <img src="Screenshots\Screenshot 2026-07-04 141837.png" width="900">
-
+```
 ```->FastAPI Swagger Documentation```
 
 <img src="Screenshots\Screenshot 2026-07-03 004627.png" width="900">
