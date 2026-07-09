@@ -74,19 +74,24 @@ networking-assistant/
 =>Installation = [installation.txt](https://github.com/ANMOL0me/Personalized-Networking-Assistant/blob/main/installation.txt)
 
 => Screenshots
-```Streamlit Frontend```
+```->Streamlit Frontend```
+
 <img src="Screenshots\Screenshot 2026-07-02 225852.png" width="900">
 
-```Fast API response```
+```->Fast API response```
+
 <img src="Screenshots\Screenshot 2026-07-04 141837.png" width="900">
 
-```FastAPI Swagger Documentation```
+```->FastAPI Swagger Documentation```
+
 <img src="Screenshots\Screenshot 2026-07-03 004627.png" width="900">
 
-```Installing Dependencies```
+```->Installing Dependencies```
+
 <img src="Screenshots\Screenshot 2026-07-03 004638.png" width="900">
 
-```Package Installation```
+```->Package Installation```
+
 <img src="Screenshots\Screenshot 2026-07-03 004647.png" width="900">
 
 Future Improvements
