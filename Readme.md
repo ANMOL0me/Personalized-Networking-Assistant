@@ -75,7 +75,7 @@ networking-assistant/
 
 => Screenshots
 Streamlit Frontend
-<img src="Screenshot 2026-07-02 225852.png" width="900">
+<img src="Screenshots\Screenshot 2026-07-02 225852.png" width="900">
 
 FastAPI Swagger Documentation
 <img src="Screenshot%202026-07-03%20004627.png" width="900">
